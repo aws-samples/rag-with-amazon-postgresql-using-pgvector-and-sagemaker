@@ -1,5 +1,5 @@
 langchain==0.0.350
 boto3>=1.26.159
-streamlit==1.25.0
+streamlit==1.30.0
 pgvector==0.2.0
 psycopg2-binary==2.9.6
