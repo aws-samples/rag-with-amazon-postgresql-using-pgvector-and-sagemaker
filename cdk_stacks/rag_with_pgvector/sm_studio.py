@@ -223,3 +223,5 @@ class SageMakerStudioStack(Stack):
                   export_name=f'{self.stack_name}-DomainId')
     cdk.CfnOutput(self, 'UserProfileName', value=sagemaker_user_profile.user_profile_name,
                   export_name=f'{self.stack_name}-UserProfileName')
+    cdk.CfnOutput(self, 'DomainSecurityGroupId', value=self.sm_domain_security_group.security_group_id,
+                  export_name=f'{self.stack_name}-DomainSecurityGroupId')

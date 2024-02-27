@@ -47,11 +47,11 @@ Before synthesizing the CloudFormation, you should set approperly the cdk contex
 
 For example:
 
-```
+<pre>
 {
-  "db_cluster_name": "postgresql-cluster-name"
+  "db_cluster_name": "<i>postgresql-cluster-name</i>"
 }
-```
+</pre>
 
 Now this point you can now synthesize the CloudFormation template for this code.
 

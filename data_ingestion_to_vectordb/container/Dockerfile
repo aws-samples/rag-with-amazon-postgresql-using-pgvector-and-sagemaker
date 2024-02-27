@@ -14,7 +14,7 @@ RUN ln -s /usr/bin/pip3 /usr/bin/pip
 # pip leaves the install caches populated which uses a
 # significant amount of space. These optimizations save a fair
 # amount of space in the image, which reduces start up time.
-RUN pip --no-cache-dir install langchain==0.0.240 psycopg2-binary==2.9.6 pgvector==0.2.0 sagemaker==2.155.0 beautifulsoup4==4.12.2
+RUN pip --no-cache-dir install langchain==0.1.0 langchain-community==0.0.20 psycopg2-binary==2.9.6 pgvector==0.2.0 sagemaker==2.155.0 beautifulsoup4==4.12.2
 
 # Include python script for retrieving credentials
 # from AWS SecretsManager and Sagemaker helper classes

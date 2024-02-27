@@ -19,7 +19,7 @@ import numpy as np
 
 from sagemaker.session import Session
 
-from langchain.document_loaders import ReadTheDocsLoader
+from langchain_community.document_loaders import ReadTheDocsLoader
 from langchain.vectorstores import PGVector
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
@@ -71,7 +71,7 @@ if __name__ == "__main__":
     files = glob.glob(os.path.join(args.input_data_dir, "*.*"))
     logger.info(f"there are {len(files)} files to process in the {args.input_data_dir} folder")
 
-    # retrieve secret to talk to Amazon Aurora Postgresql 
+    # retrieve secret to talk to Amazon Aurora Postgresql
     secret = get_credentials(args.pgvector_secretid, args.aws_region)
     db_username = secret['username']
     db_password = urllib.parse.quote_plus(secret['password'])
@@ -108,7 +108,7 @@ if __name__ == "__main__":
         doc.metadata['timestamp'] = time.time()
         doc.metadata['embeddings_model'] = args.embeddings_model_endpoint_name
     chunks = text_splitter.create_documents([doc.page_content for doc in docs], metadatas=[doc.metadata for doc in docs])
-    
+
     et = time.time() - st
     logger.info(f'Time taken: {et} seconds. {len(chunks)} chunks generated')
 
