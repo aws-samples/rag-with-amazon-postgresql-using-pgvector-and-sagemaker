@@ -17,8 +17,6 @@ import urllib
 
 import numpy as np
 
-from sagemaker.session import Session
-
 from langchain_community.document_loaders import ReadTheDocsLoader
 from langchain_community.vectorstores import PGVector
 from langchain.text_splitter import RecursiveCharacterTextSplitter

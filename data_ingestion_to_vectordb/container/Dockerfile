@@ -1,25 +1,14 @@
-FROM python:3.9-slim-buster
-
-RUN apt-get -y update && apt-get install -y --no-install-recommends \
-         wget \
-         python3-pip \
-         python3-setuptools \
-         nginx \
-         ca-certificates \
-    && rm -rf /var/lib/apt/lists/*
-
-RUN ln -s /usr/bin/python3 /usr/bin/python
-RUN ln -s /usr/bin/pip3 /usr/bin/pip
+FROM python:3.10.13-slim
 
 # pip leaves the install caches populated which uses a
 # significant amount of space. These optimizations save a fair
 # amount of space in the image, which reduces start up time.
 RUN pip --no-cache-dir install -U pip
-RUN pip --no-cache-dir install langchain==0.1.0 \
+RUN pip --no-cache-dir install boto3==1.33.9 \
+    langchain==0.1.0 \
     langchain-community==0.0.20 \
     psycopg2-binary==2.9.6 \
     pgvector==0.2.0 \
-    sagemaker==2.155.0 \
     beautifulsoup4==4.12.3
 
 
