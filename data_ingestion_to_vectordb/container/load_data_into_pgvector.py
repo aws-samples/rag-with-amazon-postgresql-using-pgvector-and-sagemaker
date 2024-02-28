@@ -20,7 +20,7 @@ import numpy as np
 from sagemaker.session import Session
 
 from langchain_community.document_loaders import ReadTheDocsLoader
-from langchain.vectorstores import PGVector
+from langchain_community.vectorstores import PGVector
 from langchain.text_splitter import RecursiveCharacterTextSplitter
 
 from credentials import get_credentials
@@ -88,7 +88,7 @@ if __name__ == "__main__":
     )
 
     logger.info(f'input-data-dir: {args.input_data_dir}')
-    loader = ReadTheDocsLoader(args.input_data_dir, features='html.parser')
+    loader = ReadTheDocsLoader(args.input_data_dir)
     text_splitter = RecursiveCharacterTextSplitter(
         # Set a really small chunk size, just to show.
         chunk_size=args.chunk_size_for_doc_split,
