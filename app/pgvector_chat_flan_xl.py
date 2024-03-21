@@ -7,9 +7,9 @@ import urllib
 
 import boto3
 
-from langchain.vectorstores import PGVector
-from langchain.embeddings import SagemakerEndpointEmbeddings
-from langchain.embeddings.sagemaker_endpoint import EmbeddingsContentHandler
+from langchain_community.vectorstores import PGVector
+from langchain_community.embeddings import SagemakerEndpointEmbeddings
+from langchain_community.embeddings.sagemaker_endpoint import EmbeddingsContentHandler
 
 from langchain.llms.sagemaker_endpoint import (
     SagemakerEndpoint,
