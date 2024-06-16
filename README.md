@@ -21,7 +21,7 @@ The overall architecture is like this:
 2. Open SageMaker Studio and then open a new **System terminal**.
 3. Run the following commands on the terminal to clone the code repository for this project:
    ```
-   git clone https://github.com/aws-samples/rag-with-amazon-postgresql-using-pgvector.git
+   git clone --depth=1 https://github.com/aws-samples/rag-with-amazon-postgresql-using-pgvector.git
    ```
 4. Open `data_ingestion_to_pgvector.ipynb` notebook and Run it. (For more information, see [here](./data_ingestion_to_vectordb/data_ingestion_to_pgvector.ipynb))
 5. Run Streamlit application. (For more information, see [here](./app/README.md))
@@ -29,6 +29,9 @@ The overall architecture is like this:
 ### References
 
   * [Leverage pgvector and Amazon Aurora PostgreSQL for Natural Language Processing, Chatbots and Sentiment Analysis (2023-07-13)](https://aws.amazon.com/blogs/database/leverage-pgvector-and-amazon-aurora-postgresql-for-natural-language-processing-chatbots-and-sentiment-analysis/)
+  * [Accelerate HNSW indexing and searching with pgvector on Amazon Aurora PostgreSQL-compatible edition and Amazon RDS for PostgreSQL (2023-11-06)](https://aws.amazon.com/blogs/database/accelerate-hnsw-indexing-and-searching-with-pgvector-on-amazon-aurora-postgresql-compatible-edition-and-amazon-rds-for-postgresql/)
+  * [Optimize generative AI applications with pgvector indexing: A deep dive into IVFFlat and HNSW techniques (2024-03-15)](https://aws.amazon.com/blogs/database/optimize-generative-ai-applications-with-pgvector-indexing-a-deep-dive-into-ivfflat-and-hnsw-techniques/)
+  * [Improve the performance of generative AI workloads on Amazon Aurora with Optimized Reads and pgvector (2024-02-09)](https://aws.amazon.com/blogs/database/accelerate-generative-ai-workloads-on-amazon-aurora-with-optimized-reads-and-pgvector/)
   * [Building AI-powered search in PostgreSQL using Amazon SageMaker and pgvector (2023-05-03)](https://aws.amazon.com/blogs/database/building-ai-powered-search-in-postgresql-using-amazon-sagemaker-and-pgvector/)
   * [Build Streamlit apps in Amazon SageMaker Studio (2023-04-11)](https://aws.amazon.com/blogs/machine-learning/build-streamlit-apps-in-amazon-sagemaker-studio/)
   * [Quickly build high-accuracy Generative AI applications on enterprise data using Amazon Kendra, LangChain, and large language models (2023-05-03)](https://aws.amazon.com/blogs/machine-learning/quickly-build-high-accuracy-generative-ai-applications-on-enterprise-data-using-amazon-kendra-langchain-and-large-language-models/)

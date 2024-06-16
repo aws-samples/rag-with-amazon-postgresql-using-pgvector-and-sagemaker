@@ -1,3 +1,7 @@
+#!/usr/bin/env python3
+# -*- encoding: utf-8 -*-
+# vim: tabstop=4 shiftwidth=4 softtabstop=4 expandtab
+
 import os
 import json
 import logging
@@ -113,12 +117,12 @@ def build_chain():
         accepts = "application/json"
 
         def transform_input(self, prompt: str, model_kwargs: dict) -> bytes:
-            input_str = json.dumps({"text_inputs": prompt, **model_kwargs})
+            input_str = json.dumps({"inputs": prompt, **model_kwargs})
             return input_str.encode('utf-8')
 
         def transform_output(self, output: bytes) -> str:
             response_json = json.loads(output.read().decode("utf-8"))
-            return response_json["generated_texts"][0]
+            return response_json[0]["generated_text"]
 
     content_handler = ContentHandler()
 
@@ -174,7 +178,7 @@ def build_chain():
 
 
 def run_chain(chain, prompt: str, history=[]):
-   return chain({"question": prompt, "chat_history": history})
+   return chain.invoke({"question": prompt, "chat_history": history})
 
 
 if __name__ == "__main__":

@@ -8,7 +8,7 @@ SageMaker Studio provides a convenient platform to host the Streamlit web applic
    ![](./sagemaker-studio-launcher-screenshot.png)
 2. Run the following commands on the terminal to clone the code repository for this post and install the Python packages needed by the application:
    ```
-   git clone https://github.com/aws-samples/rag-with-amazon-postgresql-using-pgvector.git
+   git clone --depth=1 https://github.com/aws-samples/rag-with-amazon-postgresql-using-pgvector.git
    cd rag-with-postgresql-pgvector/app
    python -m venv .env
    source .env/bin/activate
@@ -22,6 +22,7 @@ SageMaker Studio provides a convenient platform to host the Streamlit web applic
    export EMBEDDING_ENDPOINT_NAME="your-sagemakr-endpoint-for-embedding-model"
    export TEXT2TEXT_ENDPOINT_NAME="your-sagemaner-endpoint-for-text-generation-model"
    ```
+   :information_source: `COLLECTION_NAME` can be found in [data ingestion to vectordb](../data_ingestion_to_vectordb/data_ingestion_to_pgvector.ipynb) step.
 4. When the application runs successfully, you’ll see an output similar to the following (the IP addresses you will see will be different from the ones shown in this example). Note the port number (typically `8501`) from the output to use as part of the URL for app in the next step.
    ```
    sagemaker-user@studio$ streamlit run app.py
@@ -46,5 +47,6 @@ The following screenshot shows the app with a couple of user questions.
   * [Use proprietary foundation models from Amazon SageMaker JumpStart in Amazon SageMaker Studio (2023-06-27)](https://aws.amazon.com/blogs/machine-learning/use-proprietary-foundation-models-from-amazon-sagemaker-jumpstart-in-amazon-sagemaker-studio/)
   * [Build Streamlit apps in Amazon SageMaker Studio (2023-04-11)](https://aws.amazon.com/blogs/machine-learning/build-streamlit-apps-in-amazon-sagemaker-studio/)
   * [Quickly build high-accuracy Generative AI applications on enterprise data using Amazon Kendra, LangChain, and large language models (2023-05-02)](https://aws.amazon.com/blogs/machine-learning/quickly-build-high-accuracy-generative-ai-applications-on-enterprise-data-using-amazon-kendra-langchain-and-large-language-models/)
+  * [sagemaker-huggingface-inference-toolkit](https://github.com/aws/sagemaker-huggingface-inference-toolkit) - SageMaker Hugging Face Inference Toolkit is an open-source library for serving 🤗 Transformers and Diffusers models on Amazon SageMaker.
   * [LangChain](https://python.langchain.com/docs/get_started/introduction.html) - A framework for developing applications powered by language models.
   * [Streamlit](https://streamlit.io/) - A faster way to build and share data apps

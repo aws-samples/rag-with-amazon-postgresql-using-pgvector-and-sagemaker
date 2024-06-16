@@ -1,0 +1,8 @@
+{
+  "db_cluster_name": "rag-pgvector-demo",
+  "jumpstart_model_info": {
+    "model_id": "huggingface-text2text-flan-t5-xl",
+    "version": "2.1.0"
+  },
+  "sagemaker_studio_domain_name": "llm-app-rag-pgvector"
+}

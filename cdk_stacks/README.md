@@ -49,9 +49,25 @@ For example:
 
 <pre>
 {
-  "db_cluster_name": "<i>postgresql-cluster-name</i>"
+  "db_cluster_name": "<i>postgresql-cluster-name</i>",
+  "jumpstart_model_info": {
+    "model_id": "huggingface-text2text-flan-t5-xl",
+    "version": "2.1.0"
+  },
+  "sagemaker_studio_domain_name": "<i>sagmake-studio-domain-name</i>"
 }
 </pre>
+
+:information_source: The `model_id`, and `version` provided by SageMaker JumpStart can be found in [**SageMaker Built-in Algorithms with pre-trained Model Table**](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html).
+
+> :warning: **Important**: Make sure you need to make sure `docker daemon` is running.<br/>
+> Otherwise you will encounter the following errors:
+
+  ```
+  ERROR: Cannot connect to the Docker daemon at unix://$HOME/.docker/run/docker.sock. Is the docker daemon running?
+  jsii.errors.JavaScriptError:
+    Error: docker exited with status 1
+  ```
 
 Now this point you can now synthesize the CloudFormation template for this code.
 
@@ -130,6 +146,7 @@ Enjoy!
  * [Leverage pgvector and Amazon Aurora PostgreSQL for Natural Language Processing, Chatbots and Sentiment Analysis (2023-07-13)](https://aws.amazon.com/blogs/database/leverage-pgvector-and-amazon-aurora-postgresql-for-natural-language-processing-chatbots-and-sentiment-analysis/)
  * [Building AI-powered search in PostgreSQL using Amazon SageMaker and pgvector (2023-05-02)](https://aws.amazon.com/blogs/database/building-ai-powered-search-in-postgresql-using-amazon-sagemaker-and-pgvector/)
  * [Use proprietary foundation models from Amazon SageMaker JumpStart in Amazon SageMaker Studio (2023-06-27)](https://aws.amazon.com/blogs/machine-learning/use-proprietary-foundation-models-from-amazon-sagemaker-jumpstart-in-amazon-sagemaker-studio/)
+ * [SageMaker Built-in Algorithms with pre-trained Model Table](https://sagemaker.readthedocs.io/en/stable/doc_utils/pretrainedmodels.html)
  * [AWS Deep Learning Containers Images](https://docs.aws.amazon.com/deep-learning-containers/latest/devguide/deep-learning-containers-images.html)
  * [Securing Amazon SageMaker Studio connectivity using a private VPC (2020-10-22)](https://aws.amazon.com/blogs/machine-learning/securing-amazon-sagemaker-studio-connectivity-using-a-private-vpc/)
  * [Connect SageMaker Studio Notebooks in a VPC to External Resources](https://docs.aws.amazon.com/sagemaker/latest/dg/studio-notebooks-and-internet-access.html)
