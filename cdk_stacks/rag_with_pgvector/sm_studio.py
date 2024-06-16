@@ -217,7 +217,6 @@ class SageMakerStudioStack(Stack):
       user_settings=default_user_settings
     )
 
-    self.sm_domain_security_group = sg_sagemaker_domain
 
     cdk.CfnOutput(self, 'DomainUrl', value=sagemaker_studio_domain.attr_url,
                   export_name=f'{self.stack_name}-DomainUrl')
@@ -225,5 +224,5 @@ class SageMakerStudioStack(Stack):
                   export_name=f'{self.stack_name}-DomainId')
     cdk.CfnOutput(self, 'UserProfileName', value=sagemaker_user_profile.user_profile_name,
                   export_name=f'{self.stack_name}-UserProfileName')
-    cdk.CfnOutput(self, 'DomainSecurityGroupId', value=self.sm_domain_security_group.security_group_id,
+    cdk.CfnOutput(self, 'DomainSecurityGroupId', value=sg_sagemaker_domain.security_group_id,
                   export_name=f'{self.stack_name}-DomainSecurityGroupId')
