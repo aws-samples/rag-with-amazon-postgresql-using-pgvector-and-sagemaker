@@ -38,14 +38,15 @@ sm_studio_stack = SageMakerStudioStack(app, 'RAGSageMakerStudioStack',
 sm_studio_stack.add_dependency(aurora_pgsql_stack)
 
 sm_embedding_endpoint = EmbeddingEndpointStack(app, 'EmbeddingEndpointStack',
+  sm_studio_stack.sm_execution_role_arn,
   env=APP_ENV
 )
-sm_embedding_endpoint.add_dependency(aurora_pgsql_stack)
+sm_embedding_endpoint.add_dependency(sm_studio_stack)
 
 sm_llm_endpoint = LLMEndpointStack(app, 'LLMEndpointStack',
-  sm_studio_stack.sm_execution_role,
+  sm_studio_stack.sm_execution_role_arn,
   env=APP_ENV
 )
-sm_llm_endpoint.add_dependency(sm_embedding_endpoint)
+sm_llm_endpoint.add_dependency(sm_studio_stack)
 
 app.synth()
