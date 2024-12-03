@@ -11,12 +11,13 @@ from aws_cdk import (
 )
 from constructs import Construct
 
+
 class VpcStack(Stack):
 
   def __init__(self, scope: Construct, construct_id: str, **kwargs) -> None:
     super().__init__(scope, construct_id, **kwargs)
 
-    #XXX: For creating this CDK Stack in the existing VPC,
+    #XXX: For creating the CDK Stacks in the existing VPC,
     # remove comments from the below codes and
     # comments out vpc = aws_ec2.Vpc(..) codes,
     # then pass -c vpc_name=your-existing-vpc to cdk command
@@ -58,6 +59,5 @@ class VpcStack(Stack):
         }
       )
 
-
     cdk.CfnOutput(self, 'VPCID', value=self.vpc.vpc_id,
-      export_name='{}-VPCID'.format(self.stack_name))
+      export_name=f'{self.stack_name}-VPCID')
